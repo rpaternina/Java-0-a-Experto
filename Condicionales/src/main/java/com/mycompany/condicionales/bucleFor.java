@@ -12,7 +12,7 @@ public class bucleFor {
         }
         
         int contador;
-        for(contador = 1; contador <= numero; contador++){
+        for(contador = 1; contador <= 10; contador++){
             
             System.out.println(numero + " * " + contador + " = " + numero*contador);
         }
