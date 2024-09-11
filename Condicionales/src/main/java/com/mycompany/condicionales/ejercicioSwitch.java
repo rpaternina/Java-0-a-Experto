@@ -2,8 +2,6 @@ package com.mycompany.condicionales;
 
 import javax.swing.JOptionPane;
 
-
-
 public class ejercicioSwitch {
 
     public static void main(String[] args) {
@@ -47,6 +45,5 @@ public class ejercicioSwitch {
                 JOptionPane.showMessageDialog(null,"El resultado de la multiplicación es es: " + multi);
                
         }
-    }
-    
+    }    
 }
