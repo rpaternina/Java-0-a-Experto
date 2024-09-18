@@ -2,6 +2,7 @@
 //Escribe un programa que tome una lista de números ingresada por el usuario y los ordene en orden ascendente.
 package com.mycompany.ejercicios;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class ordenarLista {
@@ -12,14 +13,15 @@ public class ordenarLista {
         
         int numeros [] = new int[tamaño];
         
+        int menor = numeros[0];
+        
         for(int i = 0; i < tamaño; i++){
             numeros[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el numero "+ (i+1) +": "));
             System.out.println(numeros[i]);
             
-            if(numeros[i - 1] < numeros[i]){
-                System.out.println(numeros[i]);   
-            }
         }
+        Arrays.sort(numeros);
+        System.out.println(Arrays.toString(numeros));
         
             
             
