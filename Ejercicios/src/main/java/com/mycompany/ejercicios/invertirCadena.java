@@ -11,7 +11,7 @@ public class invertirCadena {
         
         String cadena = JOptionPane.showInputDialog(null, "Ingrese la cadena a invertir");
         
-        char[] caracteres = new char[cadena.length()];
+        char caracteres [] = new char[cadena.length()];
         
         String invertida = "";
         
