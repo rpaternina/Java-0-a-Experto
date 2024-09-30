@@ -18,11 +18,17 @@ public class gestionEstudiantes {
                 + "2: Mostrar todos los estudinates \n"
                 + "3: Buscar estudiante por nombre \n"
                 + "4: Calcular el promedio de notas \n"));
-
         switch (menu) {
             case 1:
-                Object[] datos = new Object[5];
+                Object[] datos = new Object[datos];                
+                datos = JOptionPane.showInputDialog(null,"Edad");                
+                
                 break;
+                
+            case 2:
+                
+                
+                
             default:
                 throw new AssertionError();
         }
