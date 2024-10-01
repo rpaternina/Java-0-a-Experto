@@ -12,8 +12,11 @@ public class Clases {
         
         oregitas.nombre = JOptionPane.showInputDialog(null,"Nombre");
         oregitas.edad = Integer.parseInt(JOptionPane.showInputDialog(null,"Edad"));
+        oregitas.raza = JOptionPane.showInputDialog(null,"Nombre");
         
-        System.out.println(oregitas.nombre + oregitas.edad);
+        oregitas.establecerAtributos(oregitas.nombre, oregitas.raza,oregitas.edad);
+        
+        
         
     }
 }

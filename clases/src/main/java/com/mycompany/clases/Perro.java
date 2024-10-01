@@ -16,4 +16,12 @@ public class Perro {
     void ladrar(){
         
     }
+    
+    //PARAMETROS
+    
+    void establecerAtributos(String nombrePerro, String razaPerro, int edadPerro){
+        nombre = nombrePerro;
+        raza = razaPerro;
+        edad = edadPerro;
+    }
 }
