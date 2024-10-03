@@ -8,13 +8,17 @@
 
 package com.mycompany.gestionestudiantes;
 
+
 public class Estudiante {
 
     String nombre;
     int edad;
     float notas;
 
-    public Estudiante() {
+    public Estudiante(String nombre, int edad, float notas) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.notas = notas;
     }
 
     public String getNombre() {
@@ -39,24 +43,6 @@ public class Estudiante {
 
     public void setNotas(float notas) {
         this.notas = notas;
-    }
-    
-    
-    
-    public void ingresarDatos(){
-
-        String nombres [] = new String [1]; 
-        int edades [] = new int[1];
-        float notas [] = new float[3];
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
     
 }
