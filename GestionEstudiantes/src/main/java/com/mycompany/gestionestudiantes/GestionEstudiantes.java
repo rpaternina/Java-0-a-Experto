@@ -1,5 +1,6 @@
 /*
-    Crea un programa que permita ingresar datos de estudiantes (nombre, edad, notas), 
+    Crea un programa que permita 
+    -ingresar datos de estudiantes (nombre, edad, notas), 
     realizar operaciones como:
     - Mostrar todos los estudiantes.
     - Buscar estudiantes por nombre.
@@ -29,6 +30,7 @@ public class GestionEstudiantes {
         
         switch (menu) {
             
+            //ingresar datos de estudiantes (nombre, edad, notas)
             case 1:
                 while(true){
                     
@@ -53,6 +55,7 @@ public class GestionEstudiantes {
                 } 
                 break;
             
+            //Mostrar todos los estudiantes.    
             case 2:
                 
                 //is.Empty() --> es para ver si el ArrayList esta vacio
@@ -66,6 +69,30 @@ public class GestionEstudiantes {
                     JOptionPane.showMessageDialog(null,"Estudiantes \n" + datos.toString());
                 }
                 break;
+            
+            //Buscar estudiantes por nombre.
+            case 3:
+                
+                String buscar = JOptionPane.showInputDialog(null,"Ingrese el nombre del estudiante a buscar");
+                
+                if(listaEstudiante.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Aún no se encuentran estudiantes registrados");
+                }else{
+                    
+                    for(Estudiante nombre:listaEstudiante){
+                        if(buscar.equals(nombre.getNombre())){
+                            JOptionPane.showMessageDialog(null, 
+                                "Nombre: \n" + nombre.getNombre() + 
+                                "Edad: \n" + nombre.getEdad() + 
+                                "Notas: \n" +nombre.getNotas());
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Este estudiante no existe");
+                    }       
+                }
+                }
+      
+                break;
+                
             default:
                 JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida");
                 
