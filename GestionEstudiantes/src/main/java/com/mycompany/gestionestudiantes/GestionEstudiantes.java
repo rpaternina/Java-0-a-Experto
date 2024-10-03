@@ -16,26 +16,37 @@ public class GestionEstudiantes {
 
     public static void main(String[] args) {
         
+        List <Estudiante> listaEstudiante = new ArrayList<Estudiante>();
         
-        int menu = Integer.parseInt(JOptionPane.showInputDialog(null,"GESTIÓN DE ESTUDIANTES \n\n"
+        while(true){
+            
+            int menu = Integer.parseInt(JOptionPane.showInputDialog(null,"GESTIÓN DE ESTUDIANTES \n\n"
                 + "1: Ingresar datos de estudiantes \n"
                 + "2: Mostrar estudiantes \n"
-                + "3: Buscar estudiante por nombre \n "
+                + "3: Buscar estudiante por nombre \n"
                 + "4: Calcular el promedio de notas \n"
                 + "5: Salir"));
         
         switch (menu) {
+            
             case 1:
                 while(true){
-                    List <Estudiante> listaEstudiante = new ArrayList<Estudiante>();
-                    String nombre = JOptionPane.showInputDialog(null,"Nombre");
+                    
+                    //Cree un ArrayList para guardar a mi Estudiante
+                    String nombres = JOptionPane.showInputDialog(null,"Nombre");
+                    
                     int edad = Integer.parseInt(JOptionPane.showInputDialog(null,"Edad"));
+                    
                     String notas = JOptionPane.showInputDialog(null,"Notas");
+                    
                     float notasEstudiantes = Float.parseFloat(notas);
-                    listaEstudiante.add(new Estudiante(nombre,edad,notasEstudiantes));
+                    
+                    //agrego a la lista un estudiante nuevo con los parametros del constructor
+                    listaEstudiante.add(new Estudiante(nombres,edad,notasEstudiantes));
+                    
                     String salir = JOptionPane.showInputDialog(null,"Desea registrar otro estudiante? (SI/NO)");
                   
-                    
+     
                     if(salir.toLowerCase().equals("no")){
                         break;
                     }
@@ -44,9 +55,24 @@ public class GestionEstudiantes {
             
             case 2:
                 
+                //is.Empty() --> es para ver si el ArrayList esta vacio
+                if(listaEstudiante.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "No hay estudiantes");
+                } else {
+                    StringBuilder datos = new StringBuilder();
+                    for(Estudiante nombre:listaEstudiante){
+                    datos.append(nombre.getNombre()).append("- \n");
+                    }
+                    JOptionPane.showMessageDialog(null,"Estudiantes \n" + datos.toString());
+                }
                 break;
             default:
-                throw new AssertionError();
+                JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida");
+                
+                   
         }
+    }
+        
+        
     }
 }
