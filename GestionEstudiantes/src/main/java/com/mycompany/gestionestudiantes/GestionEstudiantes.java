@@ -8,6 +8,8 @@
 
 package com.mycompany.gestionestudiantes;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class GestionEstudiantes {
@@ -24,12 +26,23 @@ public class GestionEstudiantes {
         
         switch (menu) {
             case 1:
-                
                 while(true){
-                    Estudiante estudiante = new Estudiante();
-                estudiante.setNombre(JOptionPane.showInputDialog(null," Nombre: "));
-                }
-                
+                    List <Estudiante> listaEstudiante = new ArrayList<Estudiante>();
+                    String nombre = JOptionPane.showInputDialog(null,"Nombre");
+                    int edad = Integer.parseInt(JOptionPane.showInputDialog(null,"Edad"));
+                    String notas = JOptionPane.showInputDialog(null,"Notas");
+                    float notasEstudiantes = Float.parseFloat(notas);
+                    listaEstudiante.add(new Estudiante(nombre,edad,notasEstudiantes));
+                    String salir = JOptionPane.showInputDialog(null,"Desea registrar otro estudiante? (SI/NO)");
+                  
+                    
+                    if(salir.toLowerCase().equals("no")){
+                        break;
+                    }
+                } 
+                break;
+            
+            case 2:
                 
                 break;
             default:
