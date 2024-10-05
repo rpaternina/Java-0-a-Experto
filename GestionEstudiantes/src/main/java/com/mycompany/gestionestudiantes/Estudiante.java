@@ -8,14 +8,16 @@
 
 package com.mycompany.gestionestudiantes;
 
+import java.util.Arrays;
+
 
 public class Estudiante {
 
     String nombre;
     int edad;
-    float notas;
+    float notas [];
 
-    public Estudiante(String nombre, int edad, float notas) {
+    public Estudiante(String nombre, int edad, float notas []) {
         this.nombre = nombre;
         this.edad = edad;
         this.notas = notas;
@@ -37,12 +39,13 @@ public class Estudiante {
         this.edad = edad;
     }
 
-    public float getNotas() {
-        return notas;
+    public float [] getNotas() {
+        return notas ;
     }
 
-    public void setNotas(float notas) {
+    public void setNotas(float notas[]) {
         this.notas = notas;
     }  
+    
     
 }

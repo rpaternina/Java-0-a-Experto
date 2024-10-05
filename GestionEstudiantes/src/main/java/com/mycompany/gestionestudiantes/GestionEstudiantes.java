@@ -10,6 +10,7 @@
 package com.mycompany.gestionestudiantes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -39,12 +40,20 @@ public class GestionEstudiantes {
                     
                     int edad = Integer.parseInt(JOptionPane.showInputDialog(null,"Edad"));
                     
-                    String notas = JOptionPane.showInputDialog(null,"Notas");
+                    int notas = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la cantidad de notas"));
                     
-                    float notasEstudiantes = Float.parseFloat(notas);
+                    float variasNotas [] = new float[notas];
                     
+                    //lleno el array de notas
+                    
+                    for(int i = 0; i < variasNotas.length; i++){
+                        
+                        variasNotas[i] = Float.parseFloat(JOptionPane.showInputDialog(null,"Nota " + (i+1) + " :"));  
+                        
+                    }
+            
                     //agrego a la lista un estudiante nuevo con los parametros del constructor
-                    listaEstudiante.add(new Estudiante(nombres,edad,notasEstudiantes));
+                    listaEstudiante.add(new Estudiante(nombres,edad, variasNotas));
                     
                     String salir = JOptionPane.showInputDialog(null,"Desea registrar otro estudiante? (SI/NO)");
                   
@@ -87,9 +96,11 @@ public class GestionEstudiantes {
                         
                         if(mayuscula.trim().equals(nombre.getNombre())){
                             
+                            
+                            //como las notas son un array, tengo que poner en notas Arrays.toString
                             datosCompletos.append("\n Nombre: ").append(nombre.getNombre().toUpperCase()).
                                     append("\n Edad: ").append(nombre.getEdad()).
-                                    append("\n Nota: ").append(nombre.getNotas());
+                                    append("\n Notas: ").append(Arrays.toString(nombre.getNotas()));
                             datosEncontrados = true;
                             break;
 
@@ -100,14 +111,18 @@ public class GestionEstudiantes {
                             datosCompletos.toString());
                     
                     else JOptionPane.showMessageDialog(null,"Este estudiante no existe");
-                    
-                    
+                   
                 }
       
                 break;
+            
+            //Calcular el promedio de notas    
+            case 4: 
                 
+                
+                break;
             default:
-                JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida");
+                JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida 1-5");
                 
                    
         }
