@@ -60,13 +60,14 @@ public class GestionEstudiantes {
                 
                 //is.Empty() --> es para ver si el ArrayList esta vacio
                 if(listaEstudiante.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "No hay estudiantes");
+                    JOptionPane.showMessageDialog(null, "Aún no se encuentran estudiantes registrados");
                 } else {
                     StringBuilder datos = new StringBuilder();
                     for(Estudiante nombre:listaEstudiante){
-                    datos.append(nombre.getNombre()).append("- \n");
+                   
+                    datos.append("\n - ").append(nombre.getNombre());
                     }
-                    JOptionPane.showMessageDialog(null,"Estudiantes \n" + datos.toString());
+                    JOptionPane.showMessageDialog(null,"Estudiantes" + datos.toString().toUpperCase());
                 }
                 break;
             
@@ -74,21 +75,33 @@ public class GestionEstudiantes {
             case 3:
                 
                 String buscar = JOptionPane.showInputDialog(null,"Ingrese el nombre del estudiante a buscar");
-                
-                if(listaEstudiante.isEmpty()){
+                String mayuscula = buscar.toLowerCase();
+                boolean datosEncontrados = false;
+                                
+                if(listaEstudiante.isEmpty())
                     JOptionPane.showMessageDialog(null, "Aún no se encuentran estudiantes registrados");
-                }else{
+                else{
                     
+                    StringBuilder datosCompletos = new StringBuilder();
                     for(Estudiante nombre:listaEstudiante){
-                        if(buscar.equals(nombre.getNombre())){
-                            JOptionPane.showMessageDialog(null, 
-                                "Nombre: \n" + nombre.getNombre() + 
-                                "Edad: \n" + nombre.getEdad() + 
-                                "Notas: \n" +nombre.getNotas());
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Este estudiante no existe");
-                    }       
-                }
+                        
+                        if(mayuscula.trim().equals(nombre.getNombre())){
+                            
+                            datosCompletos.append("\n Nombre: ").append(nombre.getNombre().toUpperCase()).
+                                    append("\n Edad: ").append(nombre.getEdad()).
+                                    append("\n Nota: ").append(nombre.getNotas());
+                            datosEncontrados = true;
+                            break;
+
+                        }      
+                    }
+                    
+                    if(datosEncontrados)JOptionPane.showMessageDialog(null,"Datos del Estudiante \n" +
+                            datosCompletos.toString());
+                    
+                    else JOptionPane.showMessageDialog(null,"Este estudiante no existe");
+                    
+                    
                 }
       
                 break;
