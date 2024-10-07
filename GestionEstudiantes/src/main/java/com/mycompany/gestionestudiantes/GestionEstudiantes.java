@@ -96,7 +96,6 @@ public class GestionEstudiantes {
                         
                         if(mayuscula.trim().equals(nombre.getNombre())){
                             
-                            
                             //como las notas son un array, tengo que poner en notas Arrays.toString
                             datosCompletos.append("\n Nombre: ").append(nombre.getNombre().toUpperCase()).
                                     append("\n Edad: ").append(nombre.getEdad()).
@@ -119,8 +118,44 @@ public class GestionEstudiantes {
             //Calcular el promedio de notas    
             case 4: 
                 
+                String estudiante = JOptionPane.showInputDialog(null,"Estudiante");
+                boolean encontrados = false;
+                float suma = 0;
+                if(listaEstudiante.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "No hay estudiantes");
+                    
+                }else{ 
+                    
+                    StringBuilder notasEstudiante = new StringBuilder();
+//                    for(Estudiante promedioNotas: listaEstudiante){
+//                        if(estudiante.trim().toLowerCase().equals(promedioNotas.getNombre()));
+//                        notasEstudiante.append("\n Nombre: ").append(promedioNotas.getNombre().toUpperCase()).
+//                                append("\n Notas: ").append(Arrays.toString(promedioNotas.getNotas()));
+//                        
+//                        suma = promedioNotas.getNotas() + promedioNotas.getNotas();
+//                        encontrados = true;
+//                        break;
+//                }
+
+                    for(int i = 0; i < listaEstudiante.size();i++){
+                        if(estudiante.trim().equals(listaEstudiante.get(i).getNombre())){
+                            notasEstudiante.append(listaEstudiante.get(i).getNombre());
+                            float[] notas = listaEstudiante.get(i).getNotas();
+                           
+
+                            // Recorrer el array de notas
+                            for (float nota : notas) {
+                suma += nota; // Sumar cada nota
+            }
+                        }
+                    }
+                    
+                    if(encontrados) JOptionPane.showMessageDialog(null,"Notas \n" + notasEstudiante.toString());
+                    else JOptionPane.showMessageDialog(null,"No existe");
+                }
                 
                 break;
+               
             default:
                 JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida 1-5");
                 

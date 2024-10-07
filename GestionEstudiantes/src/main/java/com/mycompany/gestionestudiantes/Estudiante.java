@@ -8,8 +8,6 @@
 
 package com.mycompany.gestionestudiantes;
 
-import java.util.Arrays;
-
 
 public class Estudiante {
 
@@ -46,6 +44,5 @@ public class Estudiante {
     public void setNotas(float notas[]) {
         this.notas = notas;
     }  
-    
     
 }
