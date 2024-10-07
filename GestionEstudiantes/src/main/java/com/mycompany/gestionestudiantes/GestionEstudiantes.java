@@ -145,7 +145,8 @@ public class GestionEstudiantes {
 
                             // Recorrer el array de notas
                             for (float nota : notas) {
-                suma += nota; // Sumar cada nota
+                                //no funciona
+                            suma += nota; // Sumar cada nota
             }
                         }
                     }
