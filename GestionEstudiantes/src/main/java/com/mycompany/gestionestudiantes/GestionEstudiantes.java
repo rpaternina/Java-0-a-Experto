@@ -129,32 +129,34 @@ public class GestionEstudiantes {
                 }else{ 
                     
                     StringBuilder notasEstudiante = new StringBuilder();
+                    
 
                     for(int i = 0; i < listaEstudiante.size();i++){
                         if(estudiante.trim().equals(listaEstudiante.get(i).getNombre())){
                             
                             notasEstudiante
-                                    .append("\n Estudiante ").append(listaEstudiante.get(i).getNombre())
-                                    .append("\n Notas").append(Arrays.toString(listaEstudiante.get(i).getNotas()));
+                                    .append("\n Estudiante: ").append(listaEstudiante.get(i).getNombre().toUpperCase())
+                                    .append("\n Notas: ").append(Arrays.toString(listaEstudiante.get(i).getNotas()));
                             
                             float[] notas = listaEstudiante.get(i).getNotas();
                             
                             
                             // Recorrer el array de notas
                             for (float nota : notas) {
-                                //no funciona
+                                
                                 suma += nota; // Sumar cada nota
-                                division = suma / notas.length; 
-                                notasEstudiante.append("\n Promedio").append(division);
-                                
-                                
-                            }                   
+    
+                            }   
+                            
+                            division = suma / notas.length; 
+                            notasEstudiante.append("\n Promedio: ").append(division);
+                            encontrados = true;
+                            break;
                         }
-                        encontrados = true;
-                        break;
+                        
                     }
                     
-                    if(encontrados) JOptionPane.showMessageDialog(null,"Notas y promedio \n" + notasEstudiante.toString());
+                    if(encontrados)JOptionPane.showMessageDialog(null,"Notas y promedio \n" + notasEstudiante.toString()); 
                     else JOptionPane.showMessageDialog(null,"No existe");
                 }
                 
@@ -168,11 +170,9 @@ public class GestionEstudiantes {
                
             default:
                 JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida 1-5");
-                
-                   
+                             
         }
     }
-        
-        
+          
     }
 }
