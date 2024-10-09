@@ -23,7 +23,9 @@ public class GestionEstudiantes {
         
         while(finalizar){
             
-            int menu = Integer.parseInt(JOptionPane.showInputDialog(null,"GESTIÓN DE ESTUDIANTES \n\n"
+            try {
+
+                int menu = Integer.parseInt(JOptionPane.showInputDialog(null,"GESTIÓN DE ESTUDIANTES \n\n"
                 + "1: Ingresar datos de estudiantes \n"
                 + "2: Mostrar estudiantes \n"
                 + "3: Buscar estudiante por nombre \n"
@@ -171,8 +173,14 @@ public class GestionEstudiantes {
             default:
                 JOptionPane.showMessageDialog(null,"Por favor inserte una opción valida 1-5");
                              
-        }
+        
     }
-          
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Solo puede ingresar numeros");
+        }
+            
+        }
+        
     }
 }
