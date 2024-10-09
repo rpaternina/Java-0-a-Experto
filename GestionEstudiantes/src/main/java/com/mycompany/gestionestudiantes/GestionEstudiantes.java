@@ -19,8 +19,9 @@ public class GestionEstudiantes {
     public static void main(String[] args) {
         
         List <Estudiante> listaEstudiante = new ArrayList<Estudiante>();
+        boolean finalizar = true;
         
-        while(true){
+        while(finalizar){
             
             int menu = Integer.parseInt(JOptionPane.showInputDialog(null,"GESTIÓN DE ESTUDIANTES \n\n"
                 + "1: Ingresar datos de estudiantes \n"
@@ -121,39 +122,47 @@ public class GestionEstudiantes {
                 String estudiante = JOptionPane.showInputDialog(null,"Estudiante");
                 boolean encontrados = false;
                 float suma = 0;
+                float division;
                 if(listaEstudiante.isEmpty()){
                     JOptionPane.showMessageDialog(null, "No hay estudiantes");
                     
                 }else{ 
                     
                     StringBuilder notasEstudiante = new StringBuilder();
-//                    for(Estudiante promedioNotas: listaEstudiante){
-//                        if(estudiante.trim().toLowerCase().equals(promedioNotas.getNombre()));
-//                        notasEstudiante.append("\n Nombre: ").append(promedioNotas.getNombre().toUpperCase()).
-//                                append("\n Notas: ").append(Arrays.toString(promedioNotas.getNotas()));
-//                        
-//                        suma = promedioNotas.getNotas() + promedioNotas.getNotas();
-//                        encontrados = true;
-//                        break;
-//                }
 
                     for(int i = 0; i < listaEstudiante.size();i++){
                         if(estudiante.trim().equals(listaEstudiante.get(i).getNombre())){
-                            notasEstudiante.append(listaEstudiante.get(i).getNombre());
+                            
+                            notasEstudiante
+                                    .append("\n Estudiante ").append(listaEstudiante.get(i).getNombre())
+                                    .append("\n Notas").append(Arrays.toString(listaEstudiante.get(i).getNotas()));
+                            
                             float[] notas = listaEstudiante.get(i).getNotas();
-                           
-
+                            
+                            
                             // Recorrer el array de notas
                             for (float nota : notas) {
                                 //no funciona
-                            suma += nota; // Sumar cada nota
-            }
+                                suma += nota; // Sumar cada nota
+                                division = suma / notas.length; 
+                                notasEstudiante.append("\n Promedio").append(division);
+                                
+                                
+                            }                   
                         }
+                        encontrados = true;
+                        break;
                     }
                     
-                    if(encontrados) JOptionPane.showMessageDialog(null,"Notas \n" + notasEstudiante.toString());
+                    if(encontrados) JOptionPane.showMessageDialog(null,"Notas y promedio \n" + notasEstudiante.toString());
                     else JOptionPane.showMessageDialog(null,"No existe");
                 }
+                
+                break;
+                
+            case 5:
+                
+                finalizar = false;
                 
                 break;
                
