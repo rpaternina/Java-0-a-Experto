@@ -6,6 +6,13 @@
 package com.mycompany.herencia;
 
 
-public class Empleado {
+public class Empleado extends Persona{
+    
+
+    public Empleado(int id, String cedula, String nombre, String apellido, String direccion, String telefono) {
+        super(id, cedula, nombre, apellido, direccion, telefono);
+    }
+    
+    
 
 }
